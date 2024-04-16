@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <div class="centered">
+        <h2>Fake Registration Form</h2>
+        <form action="/" method="POST">
+            <section class="center-form">
+                {% for (label, values) in inputs.items() %}
+                <p class="form-bit">
+                    <label for="{{values[1]}}">{{label}}: </label>
+                    <input type="{{values[0]}}" name="{{values[1]}}" placeholder="{{values[2]}}" value="{{values[3]}}" required />
+                    <p class="placeholder"></p>
+                    <p class="error">{{values[4]}}</p>
+                </p>
+                {% endfor %}
+            </section>
+            <section class="center-button">
+                <button>Submit</button>
+            </section>
+        </form>
+    </div>
+    <p class="requirement">Username must be 3-8 characters long. It cannot contain spaces.<br>
+        Password must be 8 or more characters long, with no spaces. <br>
+        Password must contain at least one letter, one number, and one special symbol (%, #, &, or *).</p>
+</section>
+{% endblock %}
